@@ -99,26 +99,39 @@ public class LinkedList {
 		ll.head.next=second;
 		second.next=third;
 		ll.printList();System.out.println();
-		//push 8 and 9 at front
+		
+		
+		System.out.println("\npush 4 and 5 at front");
 		ll.push(4);ll.push(5);ll.printList();System.out.println();		
-		//push 10 after some node
+		
+		
+		System.out.println("\npush 6 after some node");
 		ll.insertAfter(ll.head.next.next, 6);ll.printList();System.out.println();
-		//append 15 and 16 at last
+		
+		
+		System.out.println("\nappend 7 and 8 at last");
 		ll.append(7);ll.append(8);;ll.printList();System.out.println();
-		//delete the head element
+		
+		
+		System.out.println("\ndelete the head element");
 		ll.delete(9);ll.printList();System.out.println();
-		//delete a in between element 2
+		
+		System.out.println("\ndelete any element");
 		ll.delete(2);ll.printList();System.out.println();
-		//delete the last element
+
+		System.out.println("\ndelete the last element");
 		ll.delete(16);ll.printList();System.out.println();
+		
 		//delete element from specific position (head)
-		System.out.println("delete from head :");
+		System.out.println("\ndelete from head :");
 		ll.deletePosition(0);ll.printList();System.out.println();
-		//delete element from specific position
-		System.out.println("delete from position 3 :");
+
+
+		System.out.println("\ndelete from position 3 :");
 		ll.deletePosition(3);ll.printList();System.out.println();
-		//delete element from specific position (not there)
-		System.out.println("delete from extra position :");
+
+
+		System.out.println("\ndelete from extra position :");
 		ll.deletePosition(13);ll.printList();System.out.println();
 		
 		
