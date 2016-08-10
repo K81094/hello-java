@@ -1,4 +1,4 @@
-
+//Simple LinkList program
 public class LinkedList {
 	Node head;
 	static class Node{
