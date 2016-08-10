@@ -61,6 +61,35 @@ public class LinkedList {
 		prev.next=temp.next;
 		
 	}
+	public void deletePosition(int position){
+		System.out.println("inside Delete");
+		if(head==null){
+			System.out.println("Linked List does not exists");
+			return ;
+		}
+		Node temp=head;
+		if(position==0){
+			head=head.next;
+			return;
+		}
+		
+		int counter;
+		while(temp!=null){
+			temp=temp.next;
+			counter++;			
+			if(counter==position-1){
+				temp.data=temp.next.data;
+				temp.next=temp.next.next;			
+				return;
+			}
+			
+		}
+		if(position>counter){
+			System.out.println("there are less elements than the position yu mentioned");
+			return;
+			}
+		
+	}
 	/***********************************************************************/
 	public static void main(String args[]){
 		LinkedList ll=new LinkedList();
@@ -82,6 +111,8 @@ public class LinkedList {
 		ll.delete(2);ll.printList();System.out.println();
 		//delete the last element
 		ll.delete(16);ll.printList();System.out.println();
+		//delete element from specific position
+		ll.deletePosition(3);ll.printList();System.out.println();
 		
 		
 	}
