@@ -90,6 +90,16 @@ public class LinkedList {
 			}
 		
 	}
+	public int Length(){
+		int counter=0;
+		while(head!=null){
+			counter++;
+			head=head.next;
+			
+		}
+		return counter;
+		
+	}
 	/***********************************************************************/
 	public static void main(String args[]){
 		LinkedList ll=new LinkedList();
@@ -133,6 +143,9 @@ public class LinkedList {
 
 		System.out.println("\ndelete from extra position :");
 		ll.deletePosition(13);ll.printList();System.out.println();
+		
+		System.out.println("\nLength of the linked list :");
+		System.out.println(ll.Length());
 		
 		
 	}
