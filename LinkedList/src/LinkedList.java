@@ -1,4 +1,4 @@
-//Simple Linked List Program
+//Simple LinkList program
 public class LinkedList {
 	Node head;
 	static class Node{
@@ -61,6 +61,35 @@ public class LinkedList {
 		prev.next=temp.next;
 		
 	}
+	public void deletePosition(int position){
+		
+		if(head==null){
+			System.out.println("Linked List does not exists");
+			return ;
+		}
+		Node temp=head;
+		if(position==0){
+			head=head.next;
+			return;
+		}
+		
+		int counter=0;
+		while(temp!=null){
+			temp=temp.next;
+			counter++;			
+			if(counter==position-1){
+				temp.data=temp.next.data;
+				temp.next=temp.next.next;			
+				return;
+			}
+			
+		}
+		if(position>counter){
+			System.out.println("there are less elements than the position you mentioned");
+			return;
+			}
+		
+	}
 	/***********************************************************************/
 	public static void main(String args[]){
 		LinkedList ll=new LinkedList();
@@ -71,17 +100,26 @@ public class LinkedList {
 		second.next=third;
 		ll.printList();System.out.println();
 		//push 8 and 9 at front
-		ll.push(8);ll.push(9);ll.printList();System.out.println();		
+		ll.push(4);ll.push(5);ll.printList();System.out.println();		
 		//push 10 after some node
-		ll.insertAfter(ll.head.next.next, 10);ll.printList();System.out.println();
+		ll.insertAfter(ll.head.next.next, 6);ll.printList();System.out.println();
 		//append 15 and 16 at last
-		ll.append(15);ll.append(16);;ll.printList();System.out.println();
+		ll.append(7);ll.append(8);;ll.printList();System.out.println();
 		//delete the head element
 		ll.delete(9);ll.printList();System.out.println();
 		//delete a in between element 2
 		ll.delete(2);ll.printList();System.out.println();
 		//delete the last element
 		ll.delete(16);ll.printList();System.out.println();
+		//delete element from specific position (head)
+		System.out.println("delete from head :");
+		ll.deletePosition(0);ll.printList();System.out.println();
+		//delete element from specific position
+		System.out.println("delete from position 3 :");
+		ll.deletePosition(3);ll.printList();System.out.println();
+		//delete element from specific position (not there)
+		System.out.println("delete from extra position :");
+		ll.deletePosition(13);ll.printList();System.out.println();
 		
 		
 	}
