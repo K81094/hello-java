@@ -16,6 +16,7 @@ public class Graph {
 		adj[v].add(w);
 	}
 	
+	//Breadth First Search in Graph
 	void BFS(int s){
 		boolean visited[]=new boolean[V];
 		LinkedList<Integer> queue =new LinkedList<Integer>();
@@ -38,6 +39,22 @@ public class Graph {
 		}
 		
 	}
+	//Depth First Search in Graph
+	void DFSUtil(int v,boolean visited[]){
+		visited[v]=true;
+		System.out.print(v+" ");
+		Iterator<Integer> i=adj[v].listIterator();
+		while(i.hasNext()){
+			int n=i.next();
+			if(!visited[n])
+				DFSUtil(n,visited);
+		}
+	}
+	void DFS(int v){
+		// Mark all the vertices as not visited(set as false by default in java)
+		boolean visited[]=new boolean[V];
+		DFSUtil(v,visited);
+	}
 	public static void main(String args[]){
 		Graph g=new Graph(4);
 		
@@ -48,9 +65,14 @@ public class Graph {
 		g.addEdge(2, 3);
 		g.addEdge(3, 3);
 		
-		g.BFS(2);
-		System.out.println();
+		System.out.println("Breadth First Serach in Graph");
 		g.BFS(1);
+		System.out.println();
+		g.BFS(2);
+		System.out.println("\nDepth Search travel in Graph");
+		g.DFS(1);
+		System.out.println();
+		g.DFS(2);
 	}		
 				
 	
