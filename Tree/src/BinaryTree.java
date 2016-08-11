@@ -141,6 +141,27 @@ public class BinaryTree {
 		return Math.max(Math.max(leftDiameter,rightDiameter),(leftHeight+rightHeight+1));
 		
 	}
+	//Print levelOrder Tree traversal
+	void printLevelOrder(Node node){
+		int h=treeHeight(node);
+		for(int i=1;i<=h;i++)
+			printGivenLevel (node,i);
+	}
+	
+	
+	void printGivenLevel(Node node,int level){
+		if(node==null)
+			return ;
+		if(level==1)
+			System.out.print(node.data+" ");
+		else if(level>1){
+			printGivenLevel(node.left,level-1);
+			printGivenLevel(node.right,level-1);
+		}			
+	}
+		
+		
+
 	public static void main(String args[]){
 		
 		//Tree 1 object
@@ -167,6 +188,8 @@ public class BinaryTree {
 		bt.inOrder(bt.root);
 		System.out.print("\nPostOrder  :");
 		bt.postOrder(bt.root);
+		System.out.print("\nLevel Order  :");
+		bt.printLevelOrder(bt.root);
 		System.out.print("\nTotal Nodes  :");
 		System.out.print(bt.totalNodes(bt.root));		
 		System.out.print("\nHeight  : " +bt.treeHeight(bt.root));
@@ -187,6 +210,8 @@ public class BinaryTree {
 		btt.inOrder(btt.root);
 		System.out.print("\nPostOrder :");
 		btt.postOrder(btt.root);
+		System.out.print("\nLevel Order  :");
+		btt.printLevelOrder(btt.root);
 		System.out.print("\nTotal Nodes :");
 		System.out.print(btt.totalNodes(btt.root));		
 		System.out.print("\nHeight : " +btt.treeHeight(btt.root));
@@ -198,6 +223,7 @@ public class BinaryTree {
 		System.out.print("\nMaximum value of  tree  :"+btt.findMax(btt.root));
 		System.out.print("\nMinimum value of  tree  :"+btt.findMin(btt.root));
 		System.out.print("\nDiameter of  tree  :"+btt.treeDiameter(btt.root));
+		
 		
 		
 	}
