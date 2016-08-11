@@ -25,7 +25,7 @@ public class Graph {
 		
 		while(queue.size()!=0){
 			s=queue.poll();
-			System.out.println(s+" ");
+			System.out.print(s+" ");
 			
 			Iterator<Integer> i=adj[s].listIterator();
 			while(i.hasNext()){
@@ -38,7 +38,7 @@ public class Graph {
 		}
 		
 	}
-	public static void mian(String args[]){
+	public static void main(String args[]){
 		Graph g=new Graph(4);
 		
 		g.addEdge(0, 1);
